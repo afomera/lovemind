@@ -1,10 +1,11 @@
 class ResourcesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :update, :upvote, :downvote]
   before_action :set_resource, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  
+
 
   def index
-  	@resource = Resource.all
+  	@q = Resource.ransack(params[:q])
+		@resources = @q.result(distinct: true)
   end
 
   def create

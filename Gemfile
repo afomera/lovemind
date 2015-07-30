@@ -33,6 +33,8 @@ gem 'geocoder', '~> 1.2.8'
 gem 'acts_as_votable', '~> 0.10.0'
 #Normalize attributes and strip whacky whitespace
 gem 'attribute_normalizer', '~> 1.2.0'
+#Searching is good
+gem 'ransack'
 
 #Twitter Bootstrap and friends
 gem "therubyracer"
@@ -53,4 +55,3 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
-
