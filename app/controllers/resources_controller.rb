@@ -4,8 +4,13 @@ class ResourcesController < ApplicationController
 
 
   def index
-  	@q = Resource.ransack(params[:q])
-		@resources = @q.result(distinct: true)
+		if params[:location].present?
+	    @search = Resource.near(params[:location]).search(params[:q])
+			@resources = @search.result(distinct: true)
+	  else
+			@search = Resource.search(params[:q])
+			@resources = @search.result(distinct: true)
+	  end
   end
 
   def create
