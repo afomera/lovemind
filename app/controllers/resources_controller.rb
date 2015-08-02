@@ -5,7 +5,7 @@ class ResourcesController < ApplicationController
 
   def index
 		if params[:location].present?
-	    @search = Resource.near(params[:location]).search(params[:q])
+	    @search = Resource.near(params[:location], 100).search(params[:q])
 			@resources = @search.result(distinct: true)
 	  else
 			@search = Resource.search(params[:q])

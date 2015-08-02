@@ -1,8 +1,9 @@
 <h4>Resources</h4>
 	<div class="pull-right">
 		<%= search_form_for @search do |f| %>
-			<%= text_field_tag :location, params[:location], placeholder: "Houston, TX" %>
-			<%= f.submit %>
+		  <!-- <%= f.search_field :name_cont, placeholder: "Resource Name" %> -->
+			<%= text_field_tag :location, params[:location], placeholder: "Houston, TX", class: "input-medium" %>
+			<%= f.submit "Find" %>
 		<% end %>
 	</div>
 <% @resources.each do |r| %>
