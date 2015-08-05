@@ -1,0 +1,7 @@
+<h4>New Resource</h4>
+  <%= form_for @resource do |f| %>
+    <%= f.text_field :name, placeholder: 'Acme Hospital' %>
+    <%= f.text_field :address, placeholder: '518 w 8th St Houston, TX 77087' %>
+    <%= f.text_field :notes %>
+    <%= f.submit %>
+  <% end %>
