@@ -35,6 +35,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'attribute_normalizer', '~> 1.2.0'
 #Searching is good
 gem 'ransack'
+#Add map layer
+gem 'leaflet-rails'
 
 #Twitter Bootstrap and friends
 gem "therubyracer"
