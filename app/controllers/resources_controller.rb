@@ -1,16 +1,10 @@
 class ResourcesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :update, :upvote, :downvote]
   before_action :set_resource, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+	before_action :set_search_results, only: [:show, :index, :new]
 
 
   def index
-		if params[:location].present?
-	    @search = Resource.near(params[:location], 100).search(params[:q])
-			@resources = @search.result(distinct: true)
-	  else
-			@search = Resource.search(params[:q])
-			@resources = @search.result(distinct: true)
-	  end
   end
 
   def create
@@ -57,5 +51,9 @@ class ResourcesController < ApplicationController
    def set_resource
      @resource = Resource.friendly.find(params[:id])
    end
+
+  def set_search_results
+    @resources = @search.result(distinct: true)
+  end
 
 end
