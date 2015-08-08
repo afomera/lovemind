@@ -5,6 +5,10 @@ class ResourcesController < ApplicationController
 
 
   def index
+		@hash = Gmaps4rails.build_markers(@resources) do |resource, marker|
+  		marker.lat resource.latitude
+  		marker.lng resource.longitude
+		end
   end
 
   def create

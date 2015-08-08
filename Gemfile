@@ -37,6 +37,8 @@ gem 'attribute_normalizer', '~> 1.2.0'
 gem 'ransack'
 #Background jobs make things fun fun fun
 gem 'sucker_punch', '~> 1.0'
+#Let's show some maps
+gem 'gmaps4rails'
 
 #Twitter Bootstrap and friends
 gem "therubyracer"
