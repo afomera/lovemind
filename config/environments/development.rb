@@ -30,9 +30,9 @@ Rails.application.configure do
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
-  
+
   #Set action mailer default URL
-  config.action_mailer.default_url_options = { :host => "localhost:2000" }
+  config.action_mailer.default_url_options = { :host => "lvh.me:9008" }
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.

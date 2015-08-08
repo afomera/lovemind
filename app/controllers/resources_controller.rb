@@ -18,6 +18,7 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.save
+				ResourceMailer.submission(@resource).deliver
         format.html { redirect_to @resource, notice: "Hey #{current_user.email}, #{@resource.name} was successfully added." }
         format.json { render :show, status: :created, location: @resource }
       else
