@@ -35,6 +35,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'attribute_normalizer', '~> 1.2.0'
 #Searching is good
 gem 'ransack'
+#Background jobs make things fun fun fun
+gem 'sucker_punch', '~> 1.0'
 
 #Twitter Bootstrap and friends
 gem "therubyracer"
