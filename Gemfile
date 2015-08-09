@@ -39,6 +39,8 @@ gem 'ransack'
 gem 'sucker_punch', '~> 1.0'
 #Let's show some maps
 gem 'gmaps4rails'
+#Because Jquery and Turbolinks breaks
+gem 'jquery-turbolinks'
 
 #Twitter Bootstrap and friends
 gem "therubyracer"
