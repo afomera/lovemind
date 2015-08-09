@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="col-md-5">
-    <h4>New Resource</h4>
+    <h4>Hey <%= current_user.username %>! Let's add your resource... go!</h4>
       <div class="form-area">
         <%= form_for @resource do |f| %>
           <div class="form-group">
@@ -9,6 +9,12 @@
           </div>
           <div class="form-group">
             <%= f.text_field :address, placeholder: '518 w 8th St Houston, TX 77087', class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :phone_number, placeholder: '281-888-4444', class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :website, placeholder: 'http://google.com', class: 'form-control' %>
           </div>
           <div class="form-group">
             <%= f.text_area :notes, placeholder: 'Exceptional customer service...', class: 'form-control' %>

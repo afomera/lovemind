@@ -13,6 +13,7 @@
 #  longitude    :float
 #  slug         :string
 #  phone_number :string
+#  website      :string
 #
 
 class Resource < ActiveRecord::Base
