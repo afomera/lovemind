@@ -3,4 +3,11 @@
 <p>Added by: <%= @resource.user.username %> <%= time_ago_in_words(@resource.created_at) %> ago</p>
 <%= link_to "Like", like_resource_path(@resource), method: :put, class: 'btn btn-sm btn-primary' %> <%= pluralize(@resource.get_upvotes.size, "like") %>
 <%= link_to "Dislike", dislike_resource_path(@resource), method: :put, class: 'btn btn-sm btn-danger' %> <%= pluralize(@resource.get_downvotes.size, "dislike") %>
-<%= render 'results' %>
+
+<%= form_for @comment, :url => resource_comments_path(@resource) do |f| %>
+  <%= f.text_field :body, placeholder: 'enter your comment' %>
+<% end %>
+
+<% @comments.each do |c| %>
+  <%= c.user.username %> - <%= c.body %>
+<% end %>

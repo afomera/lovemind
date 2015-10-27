@@ -76,6 +76,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
+    fancynotifications (0.1.2)
+      sass (>= 3.3.0)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     geocoder (1.2.8)
@@ -218,6 +220,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  fancynotifications
   friendly_id (~> 5.1.0)
   geocoder (~> 1.2.8)
   gmaps4rails

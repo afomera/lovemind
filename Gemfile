@@ -41,6 +41,8 @@ gem 'sucker_punch', '~> 1.0'
 gem 'gmaps4rails'
 #Because Jquery and Turbolinks breaks
 gem 'jquery-turbolinks'
+#Make pretty notifications
+gem 'fancynotifications'
 
 #Twitter Bootstrap and friends
 gem "therubyracer"
