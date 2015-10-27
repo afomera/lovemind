@@ -8,16 +8,12 @@
 </head>
 <body>
 	<nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container-fluid bg-light-purple nav">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= image_tag 'logo.png' %>
+      <div class="logo">
+        <%= image_tag 'logo.png' %>
+      </div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -25,9 +21,8 @@
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <div class="pull-right">
-            <%= search_form_for(@search, url:"/resources", :method => :get) do |f| %>
+            <%= search_form_for(@search, url:"/search", :remote => true)  do |f| %>
               <%= text_field_tag :location, params[:location], placeholder: "Houston, TX", class: "input-sm form-control" %>
-              <%= f.submit "Find", class:'btn btn-sm btn-info' %>
             <% end %>
           </div>
         </div>
@@ -52,7 +47,14 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+<% flash.each do |key, value| %>
+  <div id="notice_wrapper">
+    <div class="<%= key %>">
+      <a class="alert_close">(X)</a>
+      <%= value %>
+    </div>
+  </div>
+<% end %>
 <%= yield %>
 
 </body>

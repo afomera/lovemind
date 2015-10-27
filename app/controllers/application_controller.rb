@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
+
 private
+
   def build_search
     if params[:location].present?
 	    @search = Resource.near(params[:location], 100).search(params[:q])

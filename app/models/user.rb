@@ -23,10 +23,17 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  	
+
   validates :username, :presence => true, :uniqueness => {:case_sensitive => false}
   	has_many :resources
+    has_many :comments
   	attr_accessor :login
+
+    after_create :send_welcome_email
+
+    def send_welcome_email
+      UserMailer.welcome_user(self).deliver_later
+    end
 
   	def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup

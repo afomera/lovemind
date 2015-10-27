@@ -9,6 +9,10 @@ class ResourcesController < ApplicationController
   		marker.lat resource.latitude
   		marker.lng resource.longitude
 		end
+		respond_to do |format|
+	 		format.html {}
+	 		format.js { render  "resources/index" }
+		end
   end
 
   def create
@@ -17,7 +21,7 @@ class ResourcesController < ApplicationController
     respond_to do |format|
       if @resource.save
 				ResourceMailer.submission(@resource).deliver_later
-        format.html { redirect_to @resource, notice: "Hey #{current_user.email}, #{@resource.name} was successfully added." }
+        format.html { redirect_to @resource, notice: "Hey #{current_user.username}, #{@resource.name} was successfully added." }
         format.json { render :show, status: :created, location: @resource }
       else
         format.html { render :new }
@@ -34,22 +38,24 @@ class ResourcesController < ApplicationController
   end
 
   def show
+		@comments = @resource.comments.order("created_at DESC")
+		@comment = current_user.comments.new
   end
 
   def upvote
     @resource.upvote_by current_user
-    redirect_to :back
+    redirect_to :back, notice: "Another one for #{@resource.name}"
   end
 
   def downvote
     @resource.downvote_by current_user
-    redirect_to :back
+    redirect_to :back, notice: "Boom goes #{@resource.name}"
   end
 
   private
 
   def resource_params
-	params.require(:resource).permit(:name, :address, :phone_number, :notes, :user_id)
+		params.require(:resource).permit(:name, :address, :phone_number, :notes, :user_id)
   end
 
    def set_resource

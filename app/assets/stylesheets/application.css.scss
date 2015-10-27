@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+$notification_text: #FFFFFF;
+$notification_background: #CC00CC;
+
+@import 'fancynotifications';
+.bg-purple {
+  background: #C0F;
+}
+
+.bg-light-purple {
+  background: #FFE7FF;
+  color: #FFF;
+}
+
+.bg-light-purple:hover {
+
+  color: #FFF !important;
+}
+
+.container-fluid.nav {
+  padding: 5px;
+}
+
+.logo img {
+  margin: 3px;
+  width: 90%;
+
+}
+
+.dropdown-toggle * {
+  color: #fff;
+}
+
+
+.navbar > .btn[value='Find']:hover {
+  color: #fff !important;
+}

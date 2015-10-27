@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602150050) do
+ActiveRecord::Schema.define(version: 20151027223900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "resource_id"
+    t.text     "body"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150602150050) do
     t.float    "longitude"
     t.string   "slug"
     t.string   "phone_number"
+    t.string   "website"
   end
 
   add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true, using: :btree
