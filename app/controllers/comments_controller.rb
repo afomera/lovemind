@@ -7,10 +7,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @resource, notice: "Hey #{current_user.username}, your comment was successfully added." }
-        format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end

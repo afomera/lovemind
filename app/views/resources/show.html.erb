@@ -9,5 +9,5 @@
 <% end %>
 
 <% @comments.each do |c| %>
-  <%= c.user.username %> - <%= c.body %>
+  <%= c.user.username %> - <%= c.body %> - <%= time_ago_in_words(c.created_at) %></br>
 <% end %>
