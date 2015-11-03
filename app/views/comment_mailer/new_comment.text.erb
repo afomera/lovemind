@@ -2,6 +2,8 @@ Hi <%= @user.username %>,
 
 There is a new comment on <%= @resource.name %>
 
+<%= @resource.comments.last.user.username %> wrote: "<%= @resource.comments.last.body %>"
+
 Login to Lovemind to see the latest scoop!
 
 Cheers,
