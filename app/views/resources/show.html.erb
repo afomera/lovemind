@@ -2,12 +2,14 @@
 <p><%= @resource.address %></p>
 <p>Added by: <%= @resource.user.username %> <%= time_ago_in_words(@resource.created_at) %> ago</p>
 <%= link_to "Like", like_resource_path(@resource), method: :put, class: 'btn btn-sm btn-primary' %> <%= pluralize(@resource.get_upvotes.size, "like") %>
-<%= link_to "Dislike", dislike_resource_path(@resource), method: :put, class: 'btn btn-sm btn-danger' %> <%= pluralize(@resource.get_downvotes.size, "dislike") %>
+<%= link_to "Dislike", dislike_resource_path(@resource), method: :put, class: 'btn btn-sm btn-danger' %> <%= pluralize(@resource.get_downvotes.size, "dislike") %></br></br>
 
 <% if user_signed_in? %>
 	<%= form_for @comment, :url => resource_comments_path(@resource) do |f| %>
-	  <%= f.text_field :body, placeholder: 'enter your comment' %>
+	  <%= f.text_field :body, placeholder: 'enter your comment' %></br>
 	<% end %>
+<% else %>
+<%= link_to "Login to leave a comment", new_user_session_path(redirect_to: request.path), class: 'btn btn-sm btn-danger' %></br>
 <% end %>
 
 <% @comments.each do |c| %>
