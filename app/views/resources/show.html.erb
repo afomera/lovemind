@@ -4,8 +4,10 @@
 <%= link_to "Like", like_resource_path(@resource), method: :put, class: 'btn btn-sm btn-primary' %> <%= pluralize(@resource.get_upvotes.size, "like") %>
 <%= link_to "Dislike", dislike_resource_path(@resource), method: :put, class: 'btn btn-sm btn-danger' %> <%= pluralize(@resource.get_downvotes.size, "dislike") %>
 
-<%= form_for @comment, :url => resource_comments_path(@resource) do |f| %>
-  <%= f.text_field :body, placeholder: 'enter your comment' %>
+<% if user_signed_in? %>
+	<%= form_for @comment, :url => resource_comments_path(@resource) do |f| %>
+	  <%= f.text_field :body, placeholder: 'enter your comment' %>
+	<% end %>
 <% end %>
 
 <% @comments.each do |c| %>

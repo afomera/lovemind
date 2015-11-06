@@ -39,7 +39,7 @@ class ResourcesController < ApplicationController
 
   def show
 		@comments = @resource.comments.order("created_at DESC")
-		@comment = current_user.comments.new
+		@comment = Comment.new
   end
 
   def upvote
