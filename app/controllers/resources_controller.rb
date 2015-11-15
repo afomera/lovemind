@@ -44,12 +44,12 @@ class ResourcesController < ApplicationController
 
   def upvote
     @resource.upvote_by current_user
-    redirect_to :back, notice: "Another one for #{@resource.name}"
+    redirect_to :back, notice: "You've upvoted #{@resource.name}, hooray!"
   end
 
   def downvote
     @resource.downvote_by current_user
-    redirect_to :back, notice: "Boom goes #{@resource.name}"
+    redirect_to :back, notice: "You've downvoted #{@resource.name}, sorry to hear that."
   end
 
   private
