@@ -16,6 +16,10 @@
 
 $notification_text: #FFFFFF;
 $notification_background: #CC00CC;
+@import "font-awesome";
+a .fa-dark {
+  color: black;
+}
 
 .bg-purple {
   background: #C0F;
