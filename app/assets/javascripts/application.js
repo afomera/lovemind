@@ -17,5 +17,4 @@
 //= require twitter/bootstrap
 //= require underscore
 //= require gmaps/google
-//= require fancynotifications
 //= require_tree .
