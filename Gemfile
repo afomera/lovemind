@@ -41,13 +41,14 @@ gem 'sucker_punch', '~> 1.0'
 gem 'gmaps4rails'
 #Because Jquery and Turbolinks breaks
 gem 'jquery-turbolinks'
-#Make pretty notifications
-gem 'fancynotifications'
 
 #Twitter Bootstrap and friends
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+
+# Font Awesome for nice icons
+gem 'font-awesome-rails', '~> 4.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
