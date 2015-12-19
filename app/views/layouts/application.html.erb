@@ -8,15 +8,18 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-<% flash.each do |key, value| %>
-  <div id="notice_wrapper">
-    <div class="<%= key %>">
-      <a class="alert_close">(X)</a>
-      <%= value %>
-    </div>
+
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div id="notice_wrapper">
+        <div class="<%= key %>">
+          <a class="alert_close">(X)</a>
+          <%= value %>
+        </div>
+      </div>
+    <% end %>
+    <%= yield %>
   </div>
-<% end %>
-<%= yield %>
 
 </body>
 </html>
