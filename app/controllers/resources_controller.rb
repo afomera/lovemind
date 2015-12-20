@@ -1,7 +1,7 @@
 class ResourcesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :update, :upvote, :downvote]
   before_action :set_resource, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-	before_action :set_search_results, only: [:show, :index, :new]
+	before_action :set_search_results, only: [:show, :index]
 
 
   def index
@@ -55,7 +55,7 @@ class ResourcesController < ApplicationController
   private
 
   def resource_params
-		params.require(:resource).permit(:name, :address, :phone_number, :notes, :user_id)
+		params.require(:resource).permit(:name, :address, :phone_number, :notes, :email, :user_id)
   end
 
    def set_resource
@@ -65,5 +65,4 @@ class ResourcesController < ApplicationController
   def set_search_results
     @resources = @search.result(distinct: true)
   end
-
 end

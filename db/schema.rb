@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027223900) do
+ActiveRecord::Schema.define(version: 20151220204024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20151027223900) do
     t.string   "slug"
     t.string   "phone_number"
     t.string   "website"
+    t.string   "email"
   end
 
   add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true, using: :btree

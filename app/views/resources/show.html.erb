@@ -1,17 +1,68 @@
-<h3><%= @resource.name %></h3>
-<p><%= @resource.address %></p>
-<p>Added by: <%= @resource.user.username %> <%= time_ago_in_words(@resource.created_at) %> ago</p>
-<%= link_to "Like", like_resource_path(@resource), method: :put, class: 'btn btn-sm btn-primary' %> <%= pluralize(@resource.get_upvotes.size, "like") %>
-<%= link_to "Dislike", dislike_resource_path(@resource), method: :put, class: 'btn btn-sm btn-danger' %> <%= pluralize(@resource.get_downvotes.size, "dislike") %></br></br>
+<div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
-<% if user_signed_in? %>
-	<%= form_for @comment, :url => resource_comments_path(@resource) do |f| %>
-	  <%= f.text_field :body, placeholder: 'enter your comment' %></br>
-	<% end %>
-<% else %>
-<%= link_to "Login to leave a comment", new_user_session_path(redirect_to: request.path), class: 'btn btn-sm btn-danger' %></br>
-<% end %>
 
-<% @comments.each do |c| %>
-  <%= c.user.username %> - <%= c.body %> - <%= time_ago_in_words(c.created_at) %></br>
-<% end %>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= @resource.name %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                <div class=" col-md-9 col-lg-9 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Address:</td>
+                        <td><%= @resource.address %></td>
+                      </tr>
+                      <tr>
+                        <td>Phone:</td>
+                        <td><%= @resource.phone_number %></td>
+                      </tr>
+                      <tr>
+                        <td>Website:</td>
+                        <td><%= @resource.website %></td>
+                      </tr>
+
+                         <tr>
+                      <tr>
+                        <td>Email:</td>
+                        <td><%= @resource.email %></td>
+                      </tr>
+											<tr>
+												<td>Notes:</td>
+												<td><%= @resource.notes %></td>
+											</tr>
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  <%= link_to "Like", like_resource_path(@resource), method: :put, class: 'btn btn-primary' %> <%= pluralize(@resource.get_upvotes.size, "like") %>
+                  <%= link_to "Dislike", dislike_resource_path(@resource), method: :put, class: 'btn btn-danger' %> <%= pluralize(@resource.get_downvotes.size, "dislike") %>
+
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+									 Added by: <%= @resource.user.username %> <%= time_ago_in_words(@resource.created_at) %> ago
+									 <% if user_signed_in? %>
+										 <%= form_for @comment, :url => resource_comments_path(@resource) do |f| %>
+											 <%= f.text_field :body, placeholder: 'enter your comment' %></br>
+											 <%= f.submit "Add Comment", class: 'btn btn-info' %>
+										 <% end %>
+									 <% else %>
+									 <%= link_to "Login to leave a comment", new_user_session_path(redirect_to: request.path), class: 'btn btn-sm btn-danger' %></br>
+									 <% end %>
+									 <% @comments.each do |c| %>
+									   <%= c.user.username %> - <%= c.body %> - <%= time_ago_in_words(c.created_at) %></br>
+									 <% end %>
+
+                 </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
