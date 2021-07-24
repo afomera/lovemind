@@ -28,7 +28,7 @@ gem 'devise'
 #Friendly, Restful URLs
 gem 'friendly_id', '~> 5.1.0'
 #Let's Geocode Addresses
-gem 'geocoder', '~> 1.2.8'
+gem 'geocoder', '~> 1.6.7'
 #Let's Like or Dislike Stuffs
 gem 'acts_as_votable', '~> 0.10.0'
 #Normalize attributes and strip whacky whitespace
